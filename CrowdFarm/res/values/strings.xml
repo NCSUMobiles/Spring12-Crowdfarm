@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, CrowdFarmActivity!</string>
+    <string name="app_name">CrowdFarm</string>
+    <string name="cfTitle">CrowdFarm</string>
+    <string name="addProduce">Add Produce</string>
+    <string name="viewProduce">View Produce</string>
+    <string name="settings">Settings</string>
+
+</resources>
