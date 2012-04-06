@@ -10,5 +10,19 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="exampleEmail">bsmith@example.com</string>
+    <string name="rTitle">Registration</string>
+    <string name="passwordLower">password</string>
+    <string name="confirmEmail">Confirm your email</string>
+    <string name="promptPassword">Enter a password</string>
+    <string name="chooseAccount">Choose an account</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="firstName">First name</string>
+    <string name="mi">MI</string>
+    <string name="lastName">Last name</string>
+    <string name="sampleFirst">Bob</string>
+    <string name="sampleMiddle">R</string>
+    <string name="sampleLast">Smith</string>
 
 </resources>

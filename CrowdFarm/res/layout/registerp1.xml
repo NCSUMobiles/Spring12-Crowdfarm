@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.4"
+        android:layout_weight="0.3"
         android:gravity="center_horizontal" >
 
         <TextView
@@ -17,25 +17,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/cfTitle"
+            android:text="@string/rTitle"
             android:textAppearance="@style/titleText" />
     </RelativeLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5" >
-
+        android:layout_weight="0.2" >
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chooseAccount"
+            android:textAppearance="@style/registerText" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/TextView02"
+            android:prompt="@string/chooseAccount" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4" >
+
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/username"
-            android:textAppearance="@style/loginText" />
-
+            android:text="@string/confirmEmail"
+            android:textAppearance="@style/registerText" />
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="250dp"
@@ -44,7 +67,7 @@
             android:layout_below="@+id/TextView01"
             android:hint="@string/exampleEmail"
             android:inputType="textEmailAddress" />
-
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -52,9 +75,9 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/editText1"
             android:paddingTop="20dp"
-            android:text="@string/password"
-            android:textAppearance="@style/loginText" />
-
+            android:text="@string/promptPassword"
+            android:textAppearance="@style/registerText" />
+
         <EditText
             android:id="@+id/editText2"
             android:layout_width="200dp"
@@ -63,25 +86,22 @@
             android:layout_below="@+id/textView2"
             android:hint="@string/passwordLower"
             android:inputType="textPassword" />
-
     </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5" >
-
+        android:orientation="vertical" >
+
         <Button
             android:id="@+id/button1"
             style="@style/btnText"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
-            android:text="@string/login" />
+            android:layout_gravity="right"
+            android:text="@string/next" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
