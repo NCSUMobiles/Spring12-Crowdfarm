@@ -19,12 +19,12 @@
             android:text="@string/rTitle"
             android:textAppearance="@style/titleText" />
     </RelativeLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3" >
+        android:layout_weight="0.4" >
 
         <TextView
             android:id="@+id/textView2"
@@ -32,67 +32,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/promptLocation"
+            android:text="@string/promptDescription"
             android:textAppearance="@style/registerText" />
-
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView2"
-            android:hint="@string/sampleAddress" >
+            android:hint="@string/sampleDescription"
+            android:inputType="textMultiLine" >
 
             <requestFocus />
         </EditText>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/editText1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/or"
-            android:textAppearance="@style/registerText" />
-
-        <Button
-            android:id="@+id/button2"
-            style="@style/btnText"
-            android:layout_width="225dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView3"
-            android:text="@string/getLocation" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.4" >
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/promptPhone"
-            android:textAppearance="@style/registerText" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView4"
-            android:hint="@string/samplePhone"
-            android:inputType="phone" />
-
-    </RelativeLayout>
-
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
@@ -108,7 +64,7 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="left"
             android:text="@string/back" />
-
+
         <Button
             android:id="@+id/button1"
             style="@style/btnText"
@@ -116,7 +72,8 @@
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="@string/next" />
+            android:text="@string/submit" />
+
     </RelativeLayout>
 
 </LinearLayout>

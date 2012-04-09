@@ -10,7 +10,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="exampleEmail">bsmith@example.com</string>
+    <string name="sampleEmail">bsmith@example.com</string>
     <string name="rTitle">Registration</string>
     <string name="passwordLower">password</string>
     <string name="confirmEmail">Confirm your email</string>
@@ -24,5 +24,14 @@
     <string name="sampleFirst">Bob</string>
     <string name="sampleMiddle">R</string>
     <string name="sampleLast">Smith</string>
+    <string name="promptLocation">Enter a location</string>
+    <string name="getLocation">Use current location</string>
+    <string name="or">OR</string>
+    <string name="promptPhone">Enter a phone number</string>
+    <string name="promptDescription">Describe your farm</string>
+    <string name="sampleAddress">101 W Sample Rd, Example, NC 98765</string>
+    <string name="samplePhone">919-808-1212</string>
+    <string name="sampleDescription">Example Farms uses no pesticides while growing our produce.  Our produce is picked when ripe and always available for immediate delivery.</string>
+    <string name="submit">Submit</string>
 
 </resources>

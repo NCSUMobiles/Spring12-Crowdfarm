@@ -16,9 +16,12 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
             android:text="@string/rTitle"
             android:textAppearance="@style/titleText" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -58,14 +61,14 @@
             android:layout_alignParentTop="true"
             android:text="@string/confirmEmail"
             android:textAppearance="@style/registerText" />
-
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/TextView01"
-            android:hint="@string/exampleEmail"
+            android:hint="@string/sampleEmail"
             android:inputType="textEmailAddress" />
 
         <TextView
