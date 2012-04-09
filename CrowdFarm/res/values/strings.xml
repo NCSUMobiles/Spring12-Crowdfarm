@@ -33,5 +33,18 @@
     <string name="samplePhone">919-808-1212</string>
     <string name="sampleDescription">Example Farms uses no pesticides while growing our produce.  Our produce is picked when ripe and always available for immediate delivery.</string>
     <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="pTitle">New Produce</string>
+    <string name="promptType">Enter the type of produce</string>
+    <string name="promptAmount">Enter the quantity</string>
+    <string name="promptCost">Enter the unit cost</string>
+    <string name="sampleType">Cabbage</string>
+    <string name="sampleAmount">10</string>
+    <string name="sampleCost">0.50</string>
+    <string name="dollarSign">$</string>
+    <string name="promptPickDate">Enter the date picked</string>
+    <string name="promptLife">Enter the shelf life</string>
+    <string name="samplePickDate">01/01/2009</string>
+    <string name="sampleLife">14</string>
 
 </resources>

@@ -21,7 +21,6 @@
             android:gravity="center_horizontal"
             android:text="@string/rTitle"
             android:textAppearance="@style/titleText" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -29,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.2" >
-
+
         <TextView
             android:id="@+id/TextView02"
             android:layout_width="wrap_content"
@@ -44,7 +43,6 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/TextView02"
             android:prompt="@string/chooseAccount" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -61,7 +59,7 @@
             android:layout_alignParentTop="true"
             android:text="@string/confirmEmail"
             android:textAppearance="@style/registerText" />
-
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="250dp"
@@ -91,20 +89,21 @@
             android:inputType="textPassword" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/LinearLayout2"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
+
         <Button
             android:id="@+id/button1"
             style="@style/btnText"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:text="@string/next" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
