@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#C6B89D"  >
+    android:orientation="vertical"  >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,17 +14,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.67"
             android:gravity="center"
-            android:text="Produce List"
+            android:text="@string/lTitle"
             android:textAppearance="@style/titleText"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/Produce List"
+    <TableLayout
+        android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <!-- Preview: listitem=@android:layout/simple_list_item_2 -->
-        
-    </ListView>
+        android:layout_height="match_parent" >
+    </TableLayout>
 
 </LinearLayout>

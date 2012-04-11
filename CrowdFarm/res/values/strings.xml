@@ -46,5 +46,6 @@
     <string name="promptLife">Enter the shelf life</string>
     <string name="samplePickDate">01/01/2009</string>
     <string name="sampleLife">14</string>
+    <string name="lTitle">Produce List</string>
 
 </resources>
