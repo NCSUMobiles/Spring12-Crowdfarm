@@ -20,12 +20,12 @@
             android:text="@string/cfTitle"
             android:textAppearance="@style/titleText" />
     </RelativeLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5" >
+        android:layout_weight="1.0" >
 
         <TextView
             android:id="@+id/TextView01"
@@ -65,22 +65,41 @@
             android:inputType="textPassword" />
 
     </RelativeLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5" >
+        android:layout_weight="1.0" >
 
         <Button
             android:id="@+id/button1"
             style="@style/btnText"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
+            android:layout_centerHorizontal="true"
             android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            android:text="@string/or"
+            android:textAppearance="@style/registerText" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/btnText"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:text="@string/register" />
 
     </RelativeLayout>
 
