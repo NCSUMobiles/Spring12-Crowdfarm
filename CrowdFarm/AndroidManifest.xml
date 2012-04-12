@@ -9,15 +9,23 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" 
-        android:theme="@style/appBackground">
+        android:theme="@style/appBackground" android:debuggable="true">
         <activity
-            android:name=".CrowdFarmActivity"
-            android:label="@string/app_name" >
+            android:name=".activities.SplashScreenActivity"
+            android:label="@string/app_name" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity 
+            android:name=".activities.LoginActivity">
+            
+        </activity>
+         <activity 
+            android:name=".activities.HomeActivity">
+            
         </activity>
     </application>
 
