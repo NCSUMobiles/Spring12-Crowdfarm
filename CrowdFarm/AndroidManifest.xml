@@ -20,13 +20,14 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".activities.LoginActivity">
+            android:name=".activities.LoginActivity" android:noHistory="true">
             
         </activity>
          <activity 
             android:name=".activities.HomeActivity">
             
         </activity>
+         <activity android:name=".activities.Register1Activity"></activity>
     </application>
 
 </manifest>
