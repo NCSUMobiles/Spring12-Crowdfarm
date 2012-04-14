@@ -1,110 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LinearLayout1"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/cfTitle"
+                android:textAppearance="@style/titleText" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/inputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_weight="1.5" >
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/username"
+                android:textAppearance="@style/loginText" />
+
+            <EditText
+                android:id="@+id/usernameField"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/TextView01"
+                android:hint="@string/sampleEmail"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/usernameField"
+                android:paddingTop="20dp"
+                android:text="@string/password"
+                android:textAppearance="@style/loginText" />
+
+            <EditText
+                android:id="@+id/passwordField"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView2"
+                android:hint="@string/passwordLower"
+                android:inputType="textPassword" >
+
+                <requestFocus />
+            </EditText>
+        </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.4"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/cfTitle"
-            android:textAppearance="@style/titleText" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.0" >
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1.5" >
 
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/username"
-            android:textAppearance="@style/loginText" />
+            <Button
+                android:id="@+id/loginButton"
+                style="@style/btnText"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="handleLogin"
+                android:text="@string/login" />
 
-        <EditText
-            android:id="@+id/usernameField"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/TextView01"
-            android:hint="@string/sampleEmail"
-            android:inputType="textEmailAddress" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loginButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:text="@string/or"
+                android:textAppearance="@style/registerText" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/usernameField"
-            android:paddingTop="20dp"
-            android:text="@string/password"
-            android:textAppearance="@style/loginText" />
+            <Button
+                android:id="@+id/registerButton"
+                style="@style/btnText"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:onClick="handleRegister"
+                android:text="@string/register" />
+        </RelativeLayout>
 
-        <EditText
-            android:id="@+id/passwordField"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView2"
-            android:hint="@string/passwordLower"
-            android:inputType="textPassword" >
+    </LinearLayout>
 
-            <requestFocus />
-        </EditText>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/buttonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.0" >
-
-        <Button
-            android:id="@+id/loginButton"
-            style="@style/btnText"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/login"
-            android:onClick="handleLogin" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/loginButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="19dp"
-            android:text="@string/or"
-            android:textAppearance="@style/registerText" />
-
-        <Button
-            android:id="@+id/registerButton"
-            style="@style/btnText"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="@string/register"
-            android:onClick="handleRegister" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+</ScrollView>

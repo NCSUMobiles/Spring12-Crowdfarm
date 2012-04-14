@@ -1,78 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LinearLayout1"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout4"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:gravity="center_horizontal" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cfTitle"
+                android:textAppearance="@style/titleText" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cfTitle"
-            android:textAppearance="@style/titleText" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1.5" >
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center" >
+            <Button
+                android:id="@+id/button1"
+                style="@style/btnText"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/addProduce" />
 
-        <Button
-            android:id="@+id/button1"
-            style="@style/btnText"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/addProduce" />
+            <Button
+                android:id="@+id/button2"
+                style="@style/btnText"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/button1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="34dp"
+                android:text="@string/viewProduce" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center" >
-
-        <Button
-            android:id="@+id/button2"
-            style="@style/btnText"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:text="@string/viewProduce" />
+            <Button
+                android:id="@+id/button3"
+                style="@style/btnText"
+                android:layout_width="200dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="34dp"
+                android:text="@string/settings" />
+        </RelativeLayout>
+    </LinearLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center" >
-
-        <Button
-            android:id="@+id/button3"
-            style="@style/btnText"
-            android:layout_width="200dp"
-            android:layout_height="75dp"
-            android:text="@string/settings" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+</ScrollView>
