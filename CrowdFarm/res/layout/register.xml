@@ -7,25 +7,25 @@
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView6"
+            android:id="@+id/emailScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <LinearLayout
-                android:id="@+id/LinearLayout2"
+                android:id="@+id/emailLinear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout1"
+                    android:id="@+id/titleLayout01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="center_horizontal" >
 
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/title01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -36,37 +36,37 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout2"
+                    android:id="@+id/accountInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.2" >
 
                     <TextView
-                        android:id="@+id/TextView02"
+                        android:id="@+id/accountPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/chooseAccount"
                         android:textAppearance="@style/registerText" />
 
                     <Spinner
-                        android:id="@+id/spinner1"
+                        android:id="@+id/accountChooser"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/TextView02"
+                        android:layout_below="@+id/accountPrompt"
                         android:prompt="@string/chooseAccount" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/RelativeLayout01"
+                    android:id="@+id/credentialInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.4" >
 
                     <TextView
-                        android:id="@+id/TextView01"
+                        android:id="@+id/emailPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -75,44 +75,54 @@
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText1"
+                        android:id="@+id/emailInput"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/TextView01"
+                        android:layout_below="@+id/emailPrompt"
                         android:hint="@string/sampleEmail"
                         android:inputType="textEmailAddress" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/passwordPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/editText1"
+                        android:layout_below="@+id/emailInput"
                         android:paddingTop="20dp"
                         android:text="@string/promptPassword"
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText2"
+                        android:id="@+id/passwordInput"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView2"
+                        android:layout_below="@+id/passwordPrompt"
                         android:hint="@string/passwordLower"
                         android:inputType="textPassword" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/RelativeLayout1"
+                    android:id="@+id/buttonLayout01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50dp"
-                    android:layout_marginTop="50dp"
-                    android:orientation="vertical" >
+                    android:layout_marginTop="50dp" >
+                    
+                    <Button
+                        android:id="@+id/back01"
+                        style="@style/btnText"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="left"
+                        android:text="@string/login"
+                        android:onClick="backToLogin" />
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/next01"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -136,14 +146,14 @@
                 android:orientation="vertical" >
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout3"
+                    android:id="@+id/titleLayout02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:gravity="center_horizontal" >
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/title02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -152,14 +162,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout4"
+                    android:id="@+id/nameLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.3" >
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/firstNamePrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -168,55 +178,55 @@
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText3"
+                        android:id="@+id/firstNameInput"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView2"
+                        android:layout_below="@+id/firstNamePrompt"
                         android:hint="@string/sampleFirst" >
 
                         <requestFocus />
                     </EditText>
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/miPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/editText1"
-                        android:paddingTop="5dp"
+                        android:layout_below="@+id/firstNameInput"
+                        android:layout_marginTop="5dp"
                         android:text="@string/mi"
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText5"
+                        android:id="@+id/miInput"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView3"
+                        android:layout_below="@+id/miPrompt"
                         android:hint="@string/sampleMiddle" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/lastNamePrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/editText2"
-                        android:paddingTop="5dp"
+                        android:layout_below="@+id/miInput"
+                        android:layout_marginTop="5dp"
                         android:text="@string/lastName"
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText6"
+                        android:id="@+id/lastNameInput"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView4"
+                        android:layout_below="@+id/lastNamePrompt"
                         android:hint="@string/sampleLast" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/RelativeLayout2"
+                    android:id="@+id/buttonLayout02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -225,7 +235,7 @@
                     android:orientation="vertical" >
 
                     <Button
-                        android:id="@+id/Button01"
+                        android:id="@+id/back02"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -236,7 +246,7 @@
                         android:onClick="back" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/next02"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -260,14 +270,14 @@
                 android:orientation="vertical" >
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout5"
+                    android:id="@+id/titleLayout03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:gravity="center_horizontal" >
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/title03"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -276,14 +286,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout6"
+                    android:id="@+id/locationLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.3" >
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/locationPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -292,46 +302,46 @@
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText7"
+                        android:id="@+id/locationInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView2"
+                        android:layout_below="@+id/locationPrompt"
                         android:hint="@string/sampleAddress" >
 
                         <requestFocus />
                     </EditText>
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/orText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/editText1"
+                        android:layout_below="@+id/locationInput"
                         android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/or"
                         android:textAppearance="@style/registerText" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/locationButton"
                         style="@style/btnText"
                         android:layout_width="225dp"
                         android:layout_height="40dp"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView3"
+                        android:layout_below="@+id/orText"
                         android:text="@string/getLocation" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout7"
+                    android:id="@+id/phoneLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.4" >
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/phonePrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -340,17 +350,17 @@
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText9"
+                        android:id="@+id/phoneInput"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView4"
+                        android:layout_below="@+id/phonePrompt"
                         android:hint="@string/samplePhone"
                         android:inputType="phone" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/RelativeLayout8"
+                    android:id="@+id/buttonLayout03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50dp"
@@ -358,7 +368,7 @@
                     android:orientation="vertical" >
 
                     <Button
-                        android:id="@+id/Button4"
+                        android:id="@+id/back03"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -369,7 +379,7 @@
                         android:onClick="back" />
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/next03"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -383,7 +393,6 @@
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
@@ -393,14 +402,14 @@
                 android:orientation="vertical" >
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout8"
+                    android:id="@+id/titleLayout04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:gravity="center_horizontal" >
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/title04"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -409,14 +418,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout9"
+                    android:id="@+id/descriptionLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_weight="0.4" >
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/descriptionPrompt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -425,11 +434,11 @@
                         android:textAppearance="@style/registerText" />
 
                     <EditText
-                        android:id="@+id/editText10"
+                        android:id="@+id/descriptionInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/textView2"
+                        android:layout_below="@+id/descriptionPrompt"
                         android:hint="@string/sampleDescription"
                         android:inputType="textMultiLine" >
 
@@ -438,7 +447,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/RelativeLayout9"
+                    android:id="@+id/buttonLayout04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50dp"
@@ -446,7 +455,7 @@
                     android:orientation="vertical" >
 
                     <Button
-                        android:id="@+id/Button5"
+                        android:id="@+id/back04"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
@@ -457,13 +466,14 @@
                         android:onClick="back" />
 
                     <Button
-                        android:id="@+id/button6"
+                        android:id="@+id/next04"
                         style="@style/btnText"
                         android:layout_width="150dp"
                         android:layout_height="50dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:text="@string/submit" />
+                        android:text="@string/submit"
+                        android:onClick="submit" />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
