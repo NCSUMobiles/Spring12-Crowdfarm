@@ -39,7 +39,7 @@ public class LoginActivity extends Activity {
 	}
 	
 	public void handleRegister(View view) {
-		Intent registerIntent = new Intent(LoginActivity.this, Register1Activity.class);
+		Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
 		LoginActivity.this.startActivity(registerIntent);
 		
 	}

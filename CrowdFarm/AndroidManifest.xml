@@ -27,7 +27,7 @@
             android:name=".activities.HomeActivity">
             
         </activity>
-         <activity android:name=".activities.Register1Activity"></activity>
+         <activity android:name=".activities.RegisterActivity"></activity>
     </application>
 
 </manifest>
