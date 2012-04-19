@@ -7,12 +7,10 @@
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/emailScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <LinearLayout
-                android:id="@+id/emailLinear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
@@ -136,7 +134,6 @@
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
@@ -260,7 +257,6 @@
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 

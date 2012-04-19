@@ -10,16 +10,19 @@ import android.view.View;
 import android.widget.EditText;
 
 public class LoginActivity extends Activity {
+	
+	private EditText usernameField;
+	private EditText passwordField;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
+		
+		usernameField = (EditText)findViewById(R.id.usernameField);
+		passwordField = (EditText)findViewById(R.id.passwordField);
 	}
 	
-	public void handleLogin(View view) {
-		final EditText usernameField = (EditText)findViewById(R.id.usernameField);
-		final EditText passwordField = (EditText)findViewById(R.id.passwordField);
-		
+	public void handleLogin(View view) {		
 		Editable username = usernameField.getText();
 		String usernameString = username.toString();
 		Editable password = passwordField.getText();
