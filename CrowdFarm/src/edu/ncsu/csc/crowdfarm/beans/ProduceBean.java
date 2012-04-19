@@ -8,6 +8,7 @@ public class ProduceBean {
 	private String shelfLife;
 	private String lifeUnit;
 	private String cost;
+	private String pickDate;
 	
 	
 	public String getType() {
@@ -34,6 +35,14 @@ public class ProduceBean {
 		this.measure = measure;
 	}
 	
+	public String getPickDate() {
+		return pickDate;
+	}
+
+	public void setPickDate(String pickDate) {
+		this.pickDate = pickDate;
+	}
+
 	public String getShelfLife() {
 		return shelfLife;
 	}

@@ -36,7 +36,7 @@
     <string name="clear">Clear</string>
     <string name="pTitle">New Produce</string>
     <string name="promptType">Enter the type of produce</string>
-    <string name="promptAmount">Enter the quantity</string>
+    <string name="promptAmount">Enter the amount</string>
     <string name="promptCost">Enter the unit cost</string>
     <string name="sampleType">Cabbage</string>
     <string name="sampleAmount">10</string>
@@ -50,5 +50,16 @@
     <string name="register">Register</string>
     <string name="splashWelcome">Welcome</string>
     <string name="splashTo">to</string>
+    <string-array name="quantityTypes">
+        <item>bushel</item>
+        <item>quart</item>
+        <item>ounce</item>
+        <item>pound</item>
+    </string-array>
+    <string-array name="shelfLifeTypes">
+        <item>day</item>
+        <item>week</item>
+        <item>month</item>
+    </string-array>
 
 </resources>
