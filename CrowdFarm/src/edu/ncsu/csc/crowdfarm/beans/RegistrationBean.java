@@ -2,6 +2,7 @@ package edu.ncsu.csc.crowdfarm.beans;
 
 public class RegistrationBean {
 	
+	private String uniqueId;	
 	private String firstName;
 	private String middleInitial;
 	private String lastName;
@@ -11,6 +12,14 @@ public class RegistrationBean {
 	private String location;
 	private String description;
 	
+	
+	public String getUniqueId() {
+		return uniqueId;
+	}
+	
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
 	
 	public String getFirstName() {
 		return firstName;
