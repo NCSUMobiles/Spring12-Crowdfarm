@@ -95,7 +95,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 		try {
 			//regBean.validate();
 			CrowdFarmRest cfr = new CrowdFarmRest();
-			int regReturn = cfr.addRegistration(regBean);
+			String regReturn = cfr.addRegistration(regBean);
 		} catch(Exception e) {
 			//toast an error message
 		}
