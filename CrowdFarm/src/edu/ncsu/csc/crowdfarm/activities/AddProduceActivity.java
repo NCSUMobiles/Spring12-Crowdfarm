@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddProduceActivity extends Activity {
 	
@@ -70,7 +71,8 @@ public class AddProduceActivity extends Activity {
 			CrowdFarmRest cfr = new CrowdFarmRest();
 			cfr.addNewProduce(produceBean);
 		} catch(Exception e) {
-			//toast an error message
+			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
+			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
 		}
 		
 		Intent homeIntent = new Intent(AddProduceActivity.this, HomeActivity.class);

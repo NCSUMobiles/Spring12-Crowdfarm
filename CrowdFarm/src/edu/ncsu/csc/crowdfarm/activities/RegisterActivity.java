@@ -1,5 +1,7 @@
 package edu.ncsu.csc.crowdfarm.activities;
 
+import javax.xml.datatype.Duration;
+
 import edu.ncsu.csc.crowdfarm.R;
 import edu.ncsu.csc.crowdfarm.beans.RegistrationBean;
 import edu.ncsu.csc.crowdfarm.rest.CrowdFarmRest;
@@ -96,8 +98,15 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 			//regBean.validate();
 			CrowdFarmRest cfr = new CrowdFarmRest();
 			String regReturn = cfr.addRegistration(regBean);
+			if(regReturn == null) {
+				throw new Exception();
+			} else {
+				String successMessage = "Registration successful.";
+				Toast.makeText(getApplicationContext(), successMessage, Toast.LENGTH_LONG).show();
+			}
 		} catch(Exception e) {
-			//toast an error message
+			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
+			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
 		}
 		
 		Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
