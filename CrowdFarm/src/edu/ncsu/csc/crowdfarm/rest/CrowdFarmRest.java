@@ -1,10 +1,15 @@
 package edu.ncsu.csc.crowdfarm.rest;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,7 +30,9 @@ import edu.ncsu.csc.crowdfarm.beans.ProduceBean;
 import edu.ncsu.csc.crowdfarm.beans.RegistrationBean;
 
 public class CrowdFarmRest {
-	private String baseUrl = "http://h.55.lt:8000/api/"; 
+	//private String baseUrl = "http://h.55.lt:8000/api/";
+	// TODO fix this when the api is up
+	private String baseUrl = "http://www4.ncsu.edu/~srgraham/crowdfarm/"; 
 	private Gson gson = new Gson();
 	
 	/**
@@ -66,6 +73,36 @@ public class CrowdFarmRest {
 		}
 	}
 	
+	class ProduceArrayGson {
+		public List<ProduceGson> items;
+		
+	}
+	
+	class ProduceGson {
+		
+		@SerializedName("type")
+		public String type;
+		
+		@SerializedName("amount")
+		public String amount;
+		
+		@SerializedName("measure")
+		public String measure;
+		
+		@SerializedName("shelfLife")
+		public String shelfLife;
+		
+		@SerializedName("lifeUnit")
+		public String lifeUnit;
+		
+		@SerializedName("cost")
+		public String cost;
+		
+		@SerializedName("pickDate")
+		public String pickDate;
+		
+	}
+	
 	
 	/**
 	 * Logs a user in
@@ -76,7 +113,7 @@ public class CrowdFarmRest {
 	 * @throws Exception
 	 */
 	public RegistrationBean login(String username, String password) throws Exception {
-		String url = baseUrl + "blah"; //todo: use the correct url
+		String url = baseUrl + "login.json"; //todo: use the correct url
 		
 		try{
 			DefaultHttpClient client = new DefaultHttpClient(); 
@@ -171,9 +208,10 @@ public class CrowdFarmRest {
 	 * @return the new produce id (hopefully the api returns this back)
 	 * @throws Exception
 	 */
-	public int addNewProduce(ProduceBean p) throws Exception {
-		
-		return 0;
+	public void addNewProduce(ProduceBean p) throws Exception {
+		List<ProduceBean> ps = loadSavedProduceFromFS();
+		ps.add(p);
+		saveProduceToFS(ps);
 	}
 	
 	
@@ -185,8 +223,55 @@ public class CrowdFarmRest {
 	 * @throws Exception
 	 */
 	public List<ProduceBean> loadProduce(RegistrationBean r) throws Exception {
+		return loadSavedProduceFromFS();
+	}
+	
+	/**
+	 * Loads the produce saved to the produceFile.txt cache
+	 * Returns blank list if it doesn't exist
+	 * @return
+	 */
+	private List<ProduceBean> loadSavedProduceFromFS() throws Exception {
 		
-		return null;
+		String filename = "produceFile.txt";
+
+	    byte[] buffer = new byte[(int) new File(filename).length()];
+	    FileInputStream f = new FileInputStream(filename);
+	    f.read(buffer);
+	    String contents = new String(buffer);
+	    
+	    if(contents == null || contents == "") {
+	    	contents = "[]";
+	    }
+	    
+	    ProduceArrayGson produceArrayGson = gson.fromJson(contents, ProduceArrayGson.class);
+		
+	    List<ProduceBean> out = Collections.emptyList();
+		
+	    for(ProduceGson item : produceArrayGson.items) {
+	    	ProduceBean i = new ProduceBean();
+	    	i.setAmount(item.amount);
+	    	i.setCost(item.cost);
+			i.setLifeUnit(item.lifeUnit);
+			i.setMeasure(item.measure);
+			i.setPickDate(item.pickDate);
+			i.setShelfLife(item.shelfLife);
+			i.setType(item.type);
+	    	
+	    	out.add(i);
+	    }
+	    
+	    return out;
+	}
+	
+	private void saveProduceToFS(List<ProduceBean> ps) throws Exception {
+		String filename = "produceFile.txt";
+		
+		String jsonStr = gson.toJson(ps);
+		
+		FileOutputStream fout = new FileOutputStream(filename);
+		new PrintStream(fout).println(jsonStr);
+		fout.close();
 	}
 	
 	
