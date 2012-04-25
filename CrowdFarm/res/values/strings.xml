@@ -61,5 +61,6 @@
         <item>week</item>
         <item>month</item>
     </string-array>
+    <string name="backLogin">Back to Login</string>
 
 </resources>
