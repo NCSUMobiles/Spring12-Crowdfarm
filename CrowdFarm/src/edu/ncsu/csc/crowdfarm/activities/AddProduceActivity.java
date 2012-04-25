@@ -68,7 +68,7 @@ public class AddProduceActivity extends Activity {
 		try {
 			//produceBean.validate();
 			CrowdFarmRest cfr = new CrowdFarmRest();
-			int addReturn = cfr.addNewProduce(produceBean);
+			cfr.addNewProduce(produceBean);
 		} catch(Exception e) {
 			//toast an error message
 		}
