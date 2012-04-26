@@ -37,18 +37,20 @@ public class LoginActivity extends Activity {
 			if(returnBean == null) {
 				throw new Exception();
 			}
+			
+			SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+			SharedPreferences.Editor prefsEditor = prefs.edit();
+			prefsEditor.putString("loggedInEmail", usernameString);
+			prefsEditor.commit();
+			
+			Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
+			LoginActivity.this.startActivity(loginIntent);
 		} catch (Exception e) {
 			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
 			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
 		}
 		
-		SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-		SharedPreferences.Editor prefsEditor = prefs.edit();
-		prefsEditor.putString("loggedInEmail", usernameString);
-		prefsEditor.commit();
 		
-		Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
-		LoginActivity.this.startActivity(loginIntent);
 	}
 	
 	public void handleRegister(View v) {

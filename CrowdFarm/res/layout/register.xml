@@ -123,7 +123,7 @@
 		
 		        <Button
 		            android:id="@+id/back01"
-		            style="@style/btnText"
+		            style="@style/miscBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentLeft="true"
@@ -134,7 +134,7 @@
 		
 		        <Button
 		            android:id="@+id/next01"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentRight="true"
@@ -250,7 +250,7 @@
 		
 		        <Button
 		            android:id="@+id/back02"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentLeft="true"
@@ -261,7 +261,7 @@
 		
 		        <Button
 		            android:id="@+id/next02"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentRight="true"
@@ -341,7 +341,7 @@
 		
 		                <Button
 		                    android:id="@+id/locationButton"
-		                    style="@style/btnText"
+		                    style="@style/miscBtn"
 		                    android:layout_width="225dp"
 		                    android:layout_height="40dp"
 		                    android:layout_alignParentLeft="true"
@@ -391,7 +391,7 @@
 		
 		        <Button
 		            android:id="@+id/back03"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentLeft="true"
@@ -402,7 +402,7 @@
 		
 		        <Button
 		            android:id="@+id/next03"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentRight="true"
@@ -483,7 +483,7 @@
 		
 		        <Button
 		            android:id="@+id/back04"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentLeft="true"
@@ -494,7 +494,7 @@
 		
 		        <Button
 		            android:id="@+id/next04"
-		            style="@style/btnText"
+		            style="@style/navBtn"
 		            android:layout_width="150dp"
 		            android:layout_height="50dp"
 		            android:layout_alignParentRight="true"

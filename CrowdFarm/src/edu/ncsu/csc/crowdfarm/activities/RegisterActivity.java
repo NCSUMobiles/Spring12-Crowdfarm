@@ -37,6 +37,8 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 	private EditText phoneInput;
 	private EditText descriptionInput;
 	private ViewFlipper regFlipper;
+	private LocationManager lm;
+	private LocationListener ll;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,10 +88,11 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 	}
 	
 	public void getLocation(View v) {
-		LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-		LocationListener locationListener = new LocationListener() {
+		lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		ll = new LocationListener() {
 		    public void onLocationChanged(Location location) {
 		      RegisterActivity.this.locationInput.setText(location.getLatitude() + ", " + location.getLongitude());
+		      lm.removeUpdates(ll);
 		    }
 
 		    public void onStatusChanged(String provider, int status, Bundle extras) {}
@@ -99,7 +102,7 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 		    public void onProviderDisabled(String provider) {}
 		  };
 		  
-		  lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 600000, 0, locationListener);
+		  lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 600000, 0, ll);
 	}
 	
 	public void submit(View v) {

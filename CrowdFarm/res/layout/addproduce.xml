@@ -178,7 +178,7 @@
 
         <Button
             android:id="@+id/Button01"
-            style="@style/btnText"
+            style="@style/navBtn"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
@@ -189,7 +189,7 @@
 
         <Button
             android:id="@+id/button1"
-            style="@style/btnText"
+            style="@style/navBtn"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
