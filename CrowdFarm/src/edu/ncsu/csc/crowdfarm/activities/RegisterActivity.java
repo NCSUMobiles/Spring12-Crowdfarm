@@ -8,7 +8,11 @@ import edu.ncsu.csc.crowdfarm.rest.CrowdFarmRest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -79,6 +83,23 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 	public void backToLogin(View view) {
 		Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
 		RegisterActivity.this.startActivity(loginIntent);
+	}
+	
+	public void getLocation(View v) {
+		LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		LocationListener locationListener = new LocationListener() {
+		    public void onLocationChanged(Location location) {
+		      RegisterActivity.this.locationInput.setText(location.getLatitude() + ", " + location.getLongitude());
+		    }
+
+		    public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+		    public void onProviderEnabled(String provider) {}
+
+		    public void onProviderDisabled(String provider) {}
+		  };
+		  
+		  lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 600000, 0, locationListener);
 	}
 	
 	public void submit(View v) {
