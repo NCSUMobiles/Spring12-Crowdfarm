@@ -58,8 +58,7 @@
 		                    android:layout_width="250dp"
 		                    android:layout_height="wrap_content"
 		                    android:layout_alignParentLeft="true"
-		                    android:layout_below="@+id/accountPrompt"
-		                    android:prompt="@string/chooseAccount" />
+		                    android:layout_below="@+id/accountPrompt" />
 		            </RelativeLayout>
 		
 		

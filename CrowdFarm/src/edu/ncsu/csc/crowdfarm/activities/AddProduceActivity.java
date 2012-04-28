@@ -5,6 +5,7 @@ import edu.ncsu.csc.crowdfarm.beans.ProduceBean;
 import edu.ncsu.csc.crowdfarm.rest.CrowdFarmRest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -69,7 +70,10 @@ public class AddProduceActivity extends Activity {
 		try {
 			//produceBean.validate();
 			CrowdFarmRest cfr = new CrowdFarmRest();
-			cfr.addNewProduce(v.getContext(), "asdf", produceBean); //TODO: switch this to send the uniqueId
+			SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+			String uid = prefs.getString("loggedInUid", null);
+			
+			cfr.addNewProduce(getApplicationContext(), uid, produceBean); //TODO: switch this to send the uniqueId
 		} catch(Exception e) {
 			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
 			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();

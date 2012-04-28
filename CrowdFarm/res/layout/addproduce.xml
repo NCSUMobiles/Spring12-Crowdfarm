@@ -6,7 +6,8 @@
     <ScrollView
         android:id="@+id/ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,7 +164,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/shelfInput"
-                    android:layout_toRightOf="@+id/shelfInput" />
+                    android:layout_toRightOf="@+id/shelfInput"
+                    android:layout_marginBottom="75dp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

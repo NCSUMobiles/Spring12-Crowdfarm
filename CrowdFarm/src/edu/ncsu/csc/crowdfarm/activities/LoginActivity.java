@@ -43,6 +43,7 @@ public class LoginActivity extends Activity {
 			SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 			SharedPreferences.Editor prefsEditor = prefs.edit();
 			prefsEditor.putString("loggedInEmail", usernameString);
+			prefsEditor.putString("loggedInUid", returnBean.getUniqueId());
 			prefsEditor.commit();
 			
 			Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
