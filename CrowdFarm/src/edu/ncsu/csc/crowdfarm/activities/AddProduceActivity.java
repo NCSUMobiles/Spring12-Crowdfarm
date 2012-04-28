@@ -69,7 +69,7 @@ public class AddProduceActivity extends Activity {
 		try {
 			//produceBean.validate();
 			CrowdFarmRest cfr = new CrowdFarmRest();
-			cfr.addNewProduce(produceBean);
+			cfr.addNewProduce(v.getContext(), "asdf", produceBean); //TODO: switch this to send the uniqueId
 		} catch(Exception e) {
 			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
 			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();

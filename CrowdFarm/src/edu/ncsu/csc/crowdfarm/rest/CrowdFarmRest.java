@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +21,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+
+import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
@@ -114,23 +116,27 @@ public class CrowdFarmRest {
 	 */
 	public RegistrationBean login(String username, String password) throws Exception {
 		String url = baseUrl + "login.json"; //todo: use the correct url
-		
 		try{
+			//Log.v("MyActivity", "11111");
 			DefaultHttpClient client = new DefaultHttpClient(); 
 			HttpPost httpPost = new HttpPost(url);
+			//Log.v("asdf", url);
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 			nameValuePairs.add(new BasicNameValuePair("username", username));
+			//Log.v("MyActivity", "2222");
 			nameValuePairs.add(new BasicNameValuePair("password", password));
+			//Log.v("MyActivity", "222-1");
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			//Log.v("MyActivity", "222-2");
 			HttpResponse response = client.execute(httpPost);
-			
+			//Log.v("MyActivity", "3333");
 			int statusCode = response.getStatusLine().getStatusCode();
 			HttpEntity responseEntity = response.getEntity();
 			InputStream responseStream = responseEntity.getContent();
-			
+			//Log.v("MyActivity", "4444");
 			Reader reader = new InputStreamReader(responseStream);
 			RegistrationGson registrationResponse = gson.fromJson(reader, RegistrationGson.class);
-			
+			//Log.v("MyActivity", "5555");
 			RegistrationBean reg = new RegistrationBean();
 			reg.setUniqueId(registrationResponse.unique_id);
 			reg.setFirstName(registrationResponse.fname);
@@ -141,14 +147,14 @@ public class CrowdFarmRest {
 			reg.setPhone(registrationResponse.properties.phone);
 			reg.setLocation(registrationResponse.properties.location);
 			reg.setDescription(registrationResponse.properties.description);
-			
+			//Log.v("MyActivity", "6666");
 			return reg;
 		}
 		catch(ClientProtocolException e){
-			
+			//throw new Exception("protocol error");
 		}
 		catch(IOException e){
-			
+			//throw new Exception("io error");
 		}
 		return null;
 	}
@@ -208,10 +214,14 @@ public class CrowdFarmRest {
 	 * @return the new produce id (hopefully the api returns this back)
 	 * @throws Exception
 	 */
-	public void addNewProduce(ProduceBean p) throws Exception {
-		List<ProduceBean> ps = loadSavedProduceFromFS();
+	public void addNewProduce(Context c, String uniqueId, ProduceBean p) throws Exception {
+		//Log.v("add", "11111");
+		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
+		//Log.v("add", "2222");
 		ps.add(p);
-		saveProduceToFS(ps);
+		//Log.v("add", "3333");
+		saveProduceToFS(c, uniqueId, ps);
+		//Log.v("add", "444");
 	}
 	
 	
@@ -222,8 +232,8 @@ public class CrowdFarmRest {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<ProduceBean> loadProduce(RegistrationBean r) throws Exception {
-		return loadSavedProduceFromFS();
+	public List<ProduceBean> loadProduce(Context c, String uniqueId) throws Exception {
+		return loadSavedProduceFromFS(c, uniqueId);
 	}
 	
 	/**
@@ -231,23 +241,44 @@ public class CrowdFarmRest {
 	 * Returns blank list if it doesn't exist
 	 * @return
 	 */
-	private List<ProduceBean> loadSavedProduceFromFS() throws Exception {
-		
-		String filename = "produceFile.txt";
-
+	private List<ProduceBean> loadSavedProduceFromFS(Context c, String uniqueId) throws Exception {
+		//Log.v("load", "1111");
+		String filename = uniqueId + "_produceFile.txt";
+		//Log.v("load", "2222");
 	    byte[] buffer = new byte[(int) new File(filename).length()];
-	    FileInputStream f = new FileInputStream(filename);
-	    f.read(buffer);
-	    String contents = new String(buffer);
-	    
-	    if(contents == null || contents == "") {
-	    	contents = "[]";
+	    //Log.v("load", "3333");
+	    String contents = "";
+	    try{
+	    	FileInputStream f = c.openFileInput(filename);
+			StringBuffer strBuf = new StringBuffer("");
+			int ch;
+			while((ch = f.read()) != -1){
+				strBuf.append((char)ch);
+			}
+		    contents = new String(strBuf).toString();
 	    }
+	    catch(Exception e){
+	    	contents = "";
+	    }
+	    //Log.v("load", "6666");
 	    
-	    ProduceArrayGson produceArrayGson = gson.fromJson(contents, ProduceArrayGson.class);
-		
-	    List<ProduceBean> out = Collections.emptyList();
-		
+	    if(contents == null || contents.equals("")) {
+	    	contents = "{items:[]}";
+	    	//Log.v("load", "q:"+contents);
+	    }
+	    //Log.v("load", "7777");
+	    //Log.v("load", contents);
+	    ProduceArrayGson produceArrayGson=null;
+	    try{
+	    	 produceArrayGson = gson.fromJson(contents, ProduceArrayGson.class);
+	    }
+	    catch(Exception e){
+	    	Log.v("eee", e.toString());
+	    }
+	    //Log.v("load", "8888");
+	    List<ProduceBean> out = new ArrayList<ProduceBean>();
+	    //Log.v("load", "9999");
+	    //Log.v("single",(produceArrayGson==null)?"null":"not null");
 	    for(ProduceGson item : produceArrayGson.items) {
 	    	ProduceBean i = new ProduceBean();
 	    	i.setAmount(item.amount);
@@ -260,18 +291,23 @@ public class CrowdFarmRest {
 	    	
 	    	out.add(i);
 	    }
-	    
+	    //Log.v("load", "11111000");
+	    //throw new Error("finished loadign>>!>!");
 	    return out;
 	}
 	
-	private void saveProduceToFS(List<ProduceBean> ps) throws Exception {
-		String filename = "produceFile.txt";
-		
-		String jsonStr = gson.toJson(ps);
-		
-		FileOutputStream fout = new FileOutputStream(filename);
+	private void saveProduceToFS(Context c, String uniqueId, List<ProduceBean> ps) throws Exception {
+		String filename = uniqueId + "_produceFile.txt";
+		//Log.v("save", "11111");
+		String jsonStr = "{\"items\":"+gson.toJson(ps)+"}";
+		//Log.v("save", "2222");
+		FileOutputStream fout = c.openFileOutput(filename, Context.MODE_PRIVATE);
+		//Log.v("save", "3333");
+		//Log.v("savestr", jsonStr);
 		new PrintStream(fout).println(jsonStr);
+		//Log.v("save", "4444");
 		fout.close();
+		//Log.v("save", "5555");
 	}
 	
 	
