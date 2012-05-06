@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -310,5 +311,28 @@ public class CrowdFarmRest {
 		//Log.v("save", "5555");
 	}
 	
-	
+	/**
+	 * edits the produce list by replacing an existing produce bean with an edited one
+	 * 
+	 * @param c = context object
+	 * @param uniqueId = registration's uniqueId
+	 * @param oldType = old type of produce
+	 * @param oldPickDate = old pick date
+	 * @param newP = produce bean we're replacing with
+	 * @throws Exception
+	 */
+	private void editProduce(Context c, String uniqueId, String oldType, String oldPickDate, ProduceBean newP) throws Exception {
+		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
+		ProduceBean p = null;
+		
+		for(int a = 0; a < ps.size(); a+=1) {
+			p = ps.get(a);
+			if(p.getType().equals(oldType) && p.getPickDate().equals(oldPickDate)) {
+				ps.set(a, newP);
+				break;
+			}
+		}
+		saveProduceToFS(c, uniqueId, ps);
+	}
+		
 }
