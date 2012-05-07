@@ -334,5 +334,28 @@ public class CrowdFarmRest {
 		}
 		saveProduceToFS(c, uniqueId, ps);
 	}
+	
+	/**
+	 * deletes the producebean for a particular type and pick date
+	 * 
+	 * @param c = context object
+	 * @param uniqueId = registration's uniqueId
+	 * @param type = old type of produce
+	 * @param pickDate = old pick date
+	 * @throws Exception
+	 */
+	private void deleteProduce(Context c, String uniqueId, String type, String pickDate) throws Exception {
+		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
+		ProduceBean p = null;
+		
+		for(int a = 0; a < ps.size(); a+=1) {
+			p = ps.get(a);
+			if(p.getType().equals(type) && p.getPickDate().equals(pickDate)) {
+				ps.remove(a);
+				break;
+			}
+		}
+		saveProduceToFS(c, uniqueId, ps);
+	}
 		
 }
