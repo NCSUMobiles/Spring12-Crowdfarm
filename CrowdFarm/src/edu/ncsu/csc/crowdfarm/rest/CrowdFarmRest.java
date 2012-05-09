@@ -321,7 +321,7 @@ public class CrowdFarmRest {
 	 * @param newP = produce bean we're replacing with
 	 * @throws Exception
 	 */
-	private void editProduce(Context c, String uniqueId, String oldType, String oldPickDate, ProduceBean newP) throws Exception {
+	public void editProduce(Context c, String uniqueId, String oldType, String oldPickDate, ProduceBean newP) throws Exception {
 		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
 		ProduceBean p = null;
 		
@@ -344,7 +344,7 @@ public class CrowdFarmRest {
 	 * @param pickDate = old pick date
 	 * @throws Exception
 	 */
-	private void deleteProduce(Context c, String uniqueId, String type, String pickDate) throws Exception {
+	public void deleteProduce(Context c, String uniqueId, String type, String pickDate) throws Exception {
 		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
 		ProduceBean p = null;
 		

@@ -40,6 +40,7 @@
          <activity android:name=".activities.ViewProduceActivity"></activity>
          <activity android:name=".activities.AddProduceActivity"></activity>
          <activity android:name=".activities.SettingsActivity"></activity>
+         <activity android:name=".activities.EditProduceActivity"></activity>
     </application>
 
 </manifest>

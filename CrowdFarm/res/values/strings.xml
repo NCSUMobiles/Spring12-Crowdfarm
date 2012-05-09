@@ -62,5 +62,8 @@
         <item>month</item>
     </string-array>
     <string name="backLogin">Back to Login</string>
+    <string name="editProduce">Edit Produce</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 
 </resources>

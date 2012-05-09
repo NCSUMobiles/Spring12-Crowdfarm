@@ -28,10 +28,11 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:text="@string/pTitle"
+                    android:text="@string/editProduce"
                     android:textAppearance="@style/titleText" />
             </RelativeLayout>
-
+
+
             <RelativeLayout
                 android:id="@+id/relativeLayout2"
                 android:layout_width="match_parent"
@@ -112,7 +113,8 @@
                     android:hint="@string/sampleCost"
                     android:inputType="numberDecimal" />
             </RelativeLayout>
-
+
+
             <RelativeLayout
                 android:id="@+id/relativeLayout3"
                 android:layout_width="match_parent"
@@ -186,8 +188,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="left"
-            android:onClick="clear"
-            android:text="@string/clear" />
+            android:onClick="delete"
+            android:text="@string/delete" />
 
         <Button
             android:id="@+id/button1"
@@ -197,7 +199,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:onClick="submit"
-            android:text="@string/submit" />
+            android:text="@string/update" />
     </RelativeLayout>
 
 </RelativeLayout>
