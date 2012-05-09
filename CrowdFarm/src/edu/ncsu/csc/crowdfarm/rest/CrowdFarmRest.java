@@ -357,5 +357,19 @@ public class CrowdFarmRest {
 		}
 		saveProduceToFS(c, uniqueId, ps);
 	}
+	
+	public ProduceBean getProduceItem(Context c, String uniqueId, String type, String pickDate) throws Exception{
+		List<ProduceBean> ps = loadSavedProduceFromFS(c, uniqueId);
+		ProduceBean p = null;
+		
+		for(int a = 0; a < ps.size(); a+=1) {
+			p = ps.get(a);
+			if(p.getType().equals(type) && p.getPickDate().equals(pickDate)) {
+				return p;
+			}
+		}
+		
+		return null;
+	}
 		
 }
