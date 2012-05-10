@@ -6,7 +6,7 @@ import java.util.List;
 import edu.ncsu.csc.crowdfarm.beans.ProduceBean;
 
 
-public class NewProduceValidator extends BeanValidator<ProduceBean>{ 
+public class ProduceValidator extends BeanValidator<ProduceBean>{ 
 	
 	
 	/*

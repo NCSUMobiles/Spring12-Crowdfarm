@@ -1,8 +1,11 @@
 package edu.ncsu.csc.crowdfarm.activities;
 
+import java.util.List;
+
 import edu.ncsu.csc.crowdfarm.R;
 import edu.ncsu.csc.crowdfarm.beans.ProduceBean;
 import edu.ncsu.csc.crowdfarm.rest.CrowdFarmRest;
+import edu.ncsu.csc.crowdfarm.validate.ProduceValidator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -67,19 +70,31 @@ public class AddProduceActivity extends Activity {
 		produceBean.setShelfLife(shelfLife.getText().toString());
 		produceBean.setLifeUnit(shelfLifeSpinner.getSelectedItem().toString());
 		
-		try {
-			//produceBean.validate();
-			CrowdFarmRest cfr = new CrowdFarmRest();
-			SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-			String uid = prefs.getString("loggedInUid", null);
+		ProduceValidator pv = new ProduceValidator();
+		List<String> vList = pv.validate(produceBean);
+		if(vList.size() != 0) {
+			String vString = "";
+			for(int i = 0; i < vList.size(); i++) {
+				vString = vString + "\n" + vList.get(i);
+			}
+			Toast.makeText(getApplicationContext(), vString, Toast.LENGTH_LONG).show();
+		} else {
+			try {
+				CrowdFarmRest cfr = new CrowdFarmRest();
+				SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+				String uid = prefs.getString("loggedInUid", null);
+				
+				cfr.addNewProduce(getApplicationContext(), uid, produceBean); //TODO: switch this to send the uniqueId
+			} catch(Exception e) {
+				String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
+				Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+			}
 			
-			cfr.addNewProduce(getApplicationContext(), uid, produceBean); //TODO: switch this to send the uniqueId
-		} catch(Exception e) {
-			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
-			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+			Intent homeIntent = new Intent(AddProduceActivity.this, HomeActivity.class);
+			AddProduceActivity.this.startActivity(homeIntent);
 		}
 		
-		Intent homeIntent = new Intent(AddProduceActivity.this, HomeActivity.class);
-		AddProduceActivity.this.startActivity(homeIntent);
+		
+		
 	}
 }

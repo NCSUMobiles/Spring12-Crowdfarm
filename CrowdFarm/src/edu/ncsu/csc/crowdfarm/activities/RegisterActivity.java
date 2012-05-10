@@ -1,10 +1,14 @@
 package edu.ncsu.csc.crowdfarm.activities;
 
+import java.util.List;
+
 import javax.xml.datatype.Duration;
 
 import edu.ncsu.csc.crowdfarm.R;
 import edu.ncsu.csc.crowdfarm.beans.RegistrationBean;
 import edu.ncsu.csc.crowdfarm.rest.CrowdFarmRest;
+import edu.ncsu.csc.crowdfarm.validate.ProduceValidator;
+import edu.ncsu.csc.crowdfarm.validate.RegistrationValidator;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
@@ -118,23 +122,35 @@ public class RegisterActivity extends Activity implements AdapterView.OnItemSele
 		regBean.setPhone(phoneInput.getText().toString());
 		regBean.setDescription(descriptionInput.getText().toString());
 		
-		try {
-			//regBean.validate();
-			CrowdFarmRest cfr = new CrowdFarmRest();
-			String regReturn = cfr.addRegistration(regBean);
-			if(regReturn == null) {
-				throw new Exception();
-			} else {
-				String successMessage = "Registration successful.";
-				Toast.makeText(getApplicationContext(), successMessage, Toast.LENGTH_LONG).show();
+		RegistrationValidator rv = new RegistrationValidator();
+		List<String> vList = rv.validate(regBean);
+		if(vList.size() != 0) {
+			String vString = "";
+			for(int i = 0; i < vList.size(); i++) {
+				vString = vString + "\n" + vList.get(i);
 			}
-		} catch(Exception e) {
-			String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
-			Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), vString, Toast.LENGTH_LONG).show();
+		} else {
+			try {
+				//regBean.validate();
+				CrowdFarmRest cfr = new CrowdFarmRest();
+				String regReturn = cfr.addRegistration(regBean);
+				if(regReturn == null) {
+					throw new Exception();
+				} else {
+					String successMessage = "Registration successful.";
+					Toast.makeText(getApplicationContext(), successMessage, Toast.LENGTH_LONG).show();
+				}
+			} catch(Exception e) {
+				String errorMessage = "An error has occurred.  Ensure you have a network connections and try again.";
+				Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+			}
+			
+			Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+			RegisterActivity.this.startActivity(loginIntent);
 		}
 		
-		Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-		RegisterActivity.this.startActivity(loginIntent);
+		
 	}
 
 }
